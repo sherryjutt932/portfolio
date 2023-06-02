@@ -1,0 +1,116 @@
+section.DashGrid{
+    position: relative;
+    min-height: calc(100vh - 65px);
+    padding-left: 150px;
+}
+
+aside.navigator{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    padding: 10px;
+    border-right: 1px solid transparent;
+    border-image: linear-gradient(to top, #111, #FF2525 );
+    border-image-slice: 1;
+}
+
+.navigator ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.navigator ul li{
+    flex: 1;
+}
+
+.navigator ul li a{
+    background-color: #44444450;
+    padding: 8px;
+    width: 100%;
+    display: block;
+    border-radius: 5px;
+    color: #ffffff50;
+}
+
+.navigator ul li.active a{
+    background-color: #44444470;
+    color: #ffffff;
+}
+
+
+.DashCont{
+    padding: 10px;
+}
+
+.DashCont .heading{
+    padding: 20px;
+}
+
+.dashTrending{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0px 20px;
+    overflow-x: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.dashTrending::-webkit-scrollbar {
+    display: none;
+  }
+  
+
+.dashTrending-Card{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/1.7;
+    padding: 10px;
+    display: flex;
+    align-items: end;
+}
+
+.dashTrending-Card::after{
+    position: absolute;
+    content: " ";
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top,  rgba(0,0,0,0.7) 10%, #1c1c1c00);
+    z-index: 2;
+    mix-blend-mode: multiply;
+}
+
+.dashTrending-Card img.bg-img{
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dashTrending-Card img.dp-img{
+    object-fit: cover;
+    width: 36px;
+    height: 36px;
+    background-color: #000;
+    border-radius: 50px;
+    outline: 1px solid #bd0808;
+}
+
+.dashTrending-Card .Card-Det{
+    position: relative;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 3;
+}

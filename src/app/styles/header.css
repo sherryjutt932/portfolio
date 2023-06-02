@@ -1,0 +1,33 @@
+nav{
+    position: absolute;
+    top: 1rem;   
+    width: fit-content;
+    padding: 1rem 3rem;
+    min-width: fit-content;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    border-radius: 100px;
+
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(28, 28, 28, 0.75);
+    /* box-shadow: 0px 0px 20px 1px  #007cf0; */
+}
+
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    height: 100%;
+    width: 100%;
+}
+
+nav ul li a{
+    color: var(--ds-gray-900);
+}
+
+nav ul li.active a{
+    color: var(--ds-gray-1000);
+}

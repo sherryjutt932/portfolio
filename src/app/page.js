@@ -1,95 +1,123 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
 
+import Image from "next/image";
+import styles from "./page.module.css";
+import "./styles/work.css";
+import React, { useEffect, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
+import { gsap } from "gsap/dist/gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+
+gsap.registerPlugin(ScrollTrigger);
 export default function Home() {
+  // const [vlineHeight, setvlineHeight] = useState(70);
+  // const [vlineHeight2, setvlineHeight2] = useState(0);
+  // const [hlineWidth, sethlineWidth] = useState(0);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     // Calculate the new height based on the scroll position
+  //     const newHeight = Math.max(70 - window.scrollY, 0);
+  //     const Height = Math.max(70 - window.scrollY, 0);
+  //     const newHeight2 = ((window.scrollY-100)<70)?0:window.scrollY-100;
+  //     const newWidth = Math.max(window.scrollY, 0);
+  //     setvlineHeight(newHeight);
+  //     setvlineHeight2(newHeight2);
+  //     sethlineWidth(newWidth);
+  //   };
+
+  //   // Attach the scroll event listener when the component mounts
+  //   window.addEventListener('scroll', handleScroll);
+
+  //   // Clean up the event listener when the component unmounts
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []); // Empty
+
+  const main = useRef(null);
+  const work = useRef(null); 
+  const skills = useRef(null); 
+  const edu = useRef(null); 
+
+  
+  useEffect(() => {
+     
+    gsap.to(work.current, {
+      scrollTrigger: {
+        trigger: work.current,
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        toggleClass: { targets: work.current, className: "z-index-active" },
+      }
+    });
+
+    gsap.to(skills.current, {
+      scrollTrigger: {
+        trigger: skills.current,
+        start: "top top",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        toggleClass: { targets: skills.current, className: "z-index-active" },
+      }
+    });
+
+    gsap.to(edu.current, {
+      scrollTrigger: {
+        trigger: edu.current,
+        start: "top top",
+        end: "top center",
+        pin: true,
+        pinSpacing: false,
+        toggleClass: { targets: edu.current, className: "z-index-active" },
+      }
+    });
+
+  }, []); // Empty
+
+  // useLayoutEffect(() => {
+
+  //   ScrollTrigger.create({
+  //     trigger: work.current, // Access the DOM element using current property
+  //     start: 'top top',
+  //     end: 'bottom top',
+  //     scrub: true,
+  //     scroller: main.current,
+  //   });
+  // }, []);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <>
+      <main ref={main} className={styles.main}>
+        <section className={styles.hero}>
+          {/* <span className={styles.hline} style={{ height: `${vlineHeight}vh` }}></span>
+          <span className={styles.vline} style={{ width: `${hlineWidth}vw` }}></span>
+          <span className={styles.hline2} style={{ height: `${vlineHeight2}vh` }}></span> */}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          <h1>SHEHARYAR SAEED</h1>
+          <marquee className={styles.title} direction="left">
+            <span>Web developer</span>
+            <span>•</span>
+            <span>Graphic Designer</span>
+          </marquee>
+        </section>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        <section ref={work} className={styles.work}>
+          <h1>work</h1>
+        </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        <section ref={skills} className={styles.skills}>
+          <h1>skills</h1>
+        </section>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+        <section ref={edu} className={styles.edu}>
+          <h1>education</h1>
+        </section>
+      </main>
+    </>
+  );
 }

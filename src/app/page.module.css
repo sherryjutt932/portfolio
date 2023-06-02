@@ -17,10 +17,13 @@
 }
 
 .hero h1{
-  font-size: 5rem;
-    line-height: 1;
+  word-break: break-word;
+    font-size: 11vw;
+    text-align: center;
+    line-height: 0.8;
     font-weight: 900;
     letter-spacing: -.02em;
+    margin-bottom: 15px;
 }
 
 
@@ -33,7 +36,23 @@
   font-weight: 400;
   font-size: 1rem;
   letter-spacing: -.02em;
+  position: relative;
 }
+
+
+.hero .title::before{
+  content: " ";
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 95%;
+  height: 2px;
+  background: linear-gradient(90deg,#000,var(--develop-text),#000);
+  z-index: 2;
+  opacity: 0.5;
+}
+
 
 .hero .title span:nth-child(2){
   margin: 0px 24px;

@@ -31,3 +31,10 @@ nav ul li a{
 nav ul li.active a{
     color: var(--ds-gray-1000);
 }
+
+nav ul li:hover .circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    transition: all 0.5s ease;
+}

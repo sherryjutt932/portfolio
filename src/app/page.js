@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import CircleCursor from './components/CircleCursor';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -90,8 +91,11 @@ export default function Home() {
   //   });
   // }, []);
 
+
   return (
     <>
+      <CircleCursor />
+    
       <main ref={main} className={styles.main}>
         <section className={styles.hero}>
           {/* <span className={styles.hline} style={{ height: `${vlineHeight}vh` }}></span>

@@ -8,12 +8,13 @@
 
 .hero{
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 150vh;
   width: 100%;
   flex-direction: column;
   position: relative;
+  border: 1px solid #fff;
+  padding-top: 30vh;
 }
 
 .hero h1{
@@ -23,7 +24,9 @@
     line-height: 0.8;
     font-weight: 900;
     letter-spacing: -.02em;
-    margin-bottom: 15px;
+    transition: 0.5s cubic-bezier(.25,.75,.5,1.25);
+    cursor: none;
+    user-select: none;
 }
 
 
@@ -37,6 +40,8 @@
   font-size: 1.25rem;
   letter-spacing: -.02em;
   position: relative;
+  margin-top: 15px;
+  user-select: none;
 }
 
 
@@ -100,13 +105,8 @@ section.edu,
 section.skills,
 section.work{
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   width: 100vw;
-  flex-direction: column;
-  background-color: #fff;
-  color: #000;
 }
 
 section.skills{
@@ -119,8 +119,220 @@ section.edu{
   color: #000;
 }
 
+section.work div.field{
+  height: 100vh;
+  width: 100vw;
+  flex: 0 0 100%;
+  display: grid; 
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+   gap: 0px;
+}
 
+section.work div.field > div{
+  padding: 3rem;
+}
 
+/* section.work div.field:nth-child(1)
+{
+  background-color: aqua;
+}
+
+section.work div.field:nth-child(2)
+{
+  background-color: red;
+} */
+
+section.work div.field div.topic {
+  grid-row-start: 1;
+   grid-column-start: 1;
+   
+   grid-row-end: 3;
+   grid-column-end: 2;
+   padding-bottom: 1rem;
+   display: flex;
+   flex-direction: column;
+   
+  }
+  
+  section.work div.field div.topic h2{
+    font-size: clamp(4rem,7vw,7vw);
+    line-height: 0.9;
+    padding-bottom: 2rem;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    text-transform: capitalize;
+  }
+
+  section.work div.field div.topic p{
+    font-weight: 400;
+    font-size: 1.25rem;
+    letter-spacing: -.02em;
+  }
+
+  section.work div.field div.topic span{
+    background-color: unset;
+    border: unset;
+    outline: unset;
+    display: flex;
+    white-space:nowrap;
+    width: 100%;
+    margin-top: auto;
+  }
+  section.work div.field div.topic span hr{
+    margin: auto;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    margin-right: 10px;
+  }
+  
+section.work div.field div.detail {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  padding-top: 1rem;
+  grid-row-end: 4;
+  grid-column-end: 2;
+  display: flex;
+  gap: 1rem;
+}
+
+section.work div.field div.detail > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 10rem;
+  border: 1px solid #fff;
+  height: fit-content;
+  background-color: rgba(39,36,25,.25);
+  border: 1px solid var(--ds-gray-500);
+  border-radius: 0.5em;
+  padding: 1em;
+}
+
+section.work div.field div.items {
+  grid-row-start: 1;
+   grid-column-start: 2;
+
+   grid-row-end: 4;
+   grid-column-end: 3;
+   display: flex;
+   justify-content: center;
+   align-items: start;
+  }
+  
+  section.work div.field div.items div.list{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+  }
+  
+  section.work div.field div.items div.list > span{
+    padding-top: 30px;
+  }
+
+  section.work div.field div.items div.list > span a{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    justify-content: right;    
+  }
+  
+  section.work div.field div.items div.list > span hr{
+    margin-bottom: 10px;
+    height: 2px;
+    background-color: #fff;
+  }
+
+  section.work div.field div.items div.list:nth-child(1){
+    align-self: center;
+    margin-right: 10px;
+}
+
+section.work div.field div.items div.item_card{
+  position: relative;
+  width: clamp(100px,14rem,14rem);
+  aspect-ratio: 5/4;
+  padding: 10px;
+  display: flex;
+  align-items: end;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 1px #ffffff40;
+  /* background: linear-gradient(90deg,#000,var(--develop-text),#000); */
+}
+
+section.work div.field div.items div.item_card2{
+  aspect-ratio: unset !important;
+}
+
+section.work div.field div.items div.item_card2 h3{
+  margin-bottom: 10px;
+}
+
+section.work div.field div.items div.item_card[data-imgsha="true"]::after{
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(20deg,  rgba(0,0,0,.9) 10%  , rgba(0,0,0,0));
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+section.work div.field div.items div.item_card img{
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: .8; 
+}
+ 
+section.work div.field div.items div.item_card .Card_Det{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  z-index: 3;
+  height: 100%;
+}
+
+section.work div.field div.items div.item_card .Card_Det span ul{
+  display: flex;
+  list-style: none;
+  font-size: 0.7rem;
+  letter-spacing: -.02em;
+  color: #000;
+  gap: 5px;
+}
+
+section.work div.field div.items div.item_card .Card_Det span ul li{
+  background: #fff;
+  border-radius: 50px;
+  padding: 2px 8px;
+  font-weight: 500;
+}
+
+section.work div.field div.items .Card_Det a,
+section.work div.field div.items .Card_Det h3{
+  font-size: clamp(1rem,2rem,2rem);
+  line-height: 1;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+section.work div.field div.items .Card_Det p{
+  font-weight: 400;
+  font-size: 1.25rem;
+  letter-spacing: -.02em;
+}
   
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
